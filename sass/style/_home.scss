@@ -1,0 +1,134 @@
+@use 'variables' as a;
+
+.download {
+  max-width: 92rem;
+  width: calc(100% - 6rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  position: relative;
+  &__option {
+    background: a.$color-bgcard;
+    display: grid;
+    padding: 4rem;
+    border-radius: 1rem;
+    border-top-right-radius: 50%;
+    gap: 3rem;
+  }
+  &__actions {
+    display: flex;
+    gap: 2rem;
+
+  }
+  &__list {
+    list-style-type: none;
+    width: 5rem; height: 5rem;
+    background: a.$color-bg;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__details {
+    grid-column: 2 / 4;
+    background: a.$color-bgcard;
+    margin-top: 5rem;
+    border-radius: 1rem;
+    padding: 4rem;
+    display: grid;
+    gap: 2rem;
+  }
+  &__storage {
+    font-size: a.$fs-main;
+    color: a.$color-sub;
+    &--main {
+      font-weight: a.$fw-700;
+      color: a.$color-main;
+    }
+  }
+  &__illustration {
+    height: 1.5rem;
+    border-radius: a.$br-download;
+    background: a.$color-bg;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 1.5rem; height: 1.5rem;
+      background: a.$color-main;
+      border-radius: 50%;
+      left: 79.7%;
+      top: 47%;
+      transform: scale(.8);
+      translate: -50% -50%;
+      z-index: 1;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 81.4%; height: 100%;
+      background: a.$color-gradient;
+      border-radius: a.$br-download;
+    }
+  }
+  &__status {
+    position: absolute;
+    width: 18rem;
+    background: a.$color-main;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    font-size: a.$fs-main;
+    font-weight: a.$fw-700;
+    padding: 1rem 2rem;
+    right: 0;
+    margin-right: 4rem;
+    margin-top: -3rem;
+    &--gb {
+      color: a.$color-bg;
+      font-size: 4rem;
+    }
+  }
+  &__show {
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    background: a.$color-main;
+    right: 0;
+    clip-path: polygon(0% 0, 100% 100%, 100% 0);
+    margin-right: 4rem;
+    margin-top: 3rem;
+  }
+  &__description {
+    color: a.$color-main;
+    font-size: a.$fs-sub;
+    font-weight: a.$fw-700;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -1rem;
+  }
+}
+
+
+@media (max-width : 700px) {
+  .download {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    &__details {
+      grid-column: 1;
+      margin-top: 1rem;
+    }
+    &__status {
+      position: absolute;
+      width: 18rem;
+      padding: 1rem 2rem;
+      right: 0;
+      bottom: -20%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+    &__show {
+      display: none;
+    }
+  }
+}
